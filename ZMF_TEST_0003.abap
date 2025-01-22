@@ -16,7 +16,7 @@ FUNCTION zmf_test_0001.
     WHERE matnr EQ iv_matnr.
 
   IF sy-subrc NE 0.
-    RAISE error.
+    MESSAGE e345(ZWM) RAISE error.
   ENDIF.
 
 ENDFUNCTION.
