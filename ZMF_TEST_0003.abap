@@ -8,11 +8,13 @@ FUNCTION zmf_test_0001.
 *"----------------------------------------------------------------------
 
   DATA: lv_maktx TYPE maktx,
-        lv_matnr TYPE matnr.
+        lv_matnr TYPE matnr,
+        lv_meins TYPE meins.
 
   SELECT SINGLE matnr
+                meins
     FROM mara
-    INTO lv_matnr
+    INTO (lv_matnr, lv_meins)
     WHERE matnr EQ iv_matnr.
 
   IF sy-subrc NE 0.
