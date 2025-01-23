@@ -8,17 +8,19 @@ FUNCTION zmf_test_0001.
 *"----------------------------------------------------------------------
 
   DATA: lv_maktx TYPE maktx,
-        lv_matnr TYPE matnr.
+        lv_matnr TYPE matnr,
+        lv_meins TYPE meins.
 
-  SELECT matnr UP TO 1 ROWS
+  SELECT matnr
+         meins UP TO 1 ROWS
     FROM mara
-    INTO lv_matnr
+    INTO (lv_matnr, lv_meins)
     WHERE matnr EQ iv_matnr
    ORDER BY PRIMARY KEY.
   ENDSELECT.
 
   IF sy-subrc NE 0.
-    RAISE error.
+    MESSAGE e345(ZWM) RAISE error.
   ENDIF.
 
 ENDFUNCTION.
